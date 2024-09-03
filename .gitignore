@@ -131,3 +131,4 @@ dist
 
 # 故意忽略
 db/service-key.json
+.DS_Store
