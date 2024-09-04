@@ -5,7 +5,7 @@
     "description": "台北通黑客松相關API",
     "version": "1.0.0"
   },
-  "host": "https://hackathon-api-2zyd.onrender.com",
+  "host": "hackathon-api-2zyd.onrender.com",
   "basePath": "/",
   "schemes": ["https"],
   "paths": {
