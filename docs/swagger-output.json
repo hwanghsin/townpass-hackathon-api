@@ -5,9 +5,9 @@
     "description": "台北通黑客松相關API",
     "version": "1.0.0"
   },
-  "host": "localhost:5001",
+  "host": "https://hackathon-api-2zyd.onrender.com",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
     "/api/blood-pressure": {
       "post": {
