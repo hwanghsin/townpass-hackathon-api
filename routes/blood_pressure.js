@@ -14,7 +14,7 @@ router.post("/", (req, res) => {
     if (!high || !low) throw new Error("請輸入完整血壓資訊");
 
     firebaseDB
-      .ref(`/${userId}/${time}`)
+      .ref(`/blood-pressure/${userId}/${time}`)
       .set({ high, low, rate, oxygen, updated: time });
     res.send({ ok: true, message: "data added successfully!" });
   } catch (error) {
