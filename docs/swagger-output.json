@@ -1,0 +1,70 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API文件",
+    "description": "台北通黑客松相關API",
+    "version": "1.0.0"
+  },
+  "host": "localhost:5001",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/api/blood-pressure": {
+      "post": {
+        "description": "建立血壓資訊",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "string"
+                },
+                "high": {
+                  "example": 110
+                },
+                "low": {
+                  "example": 70
+                },
+                "rate": {
+                  "example": 70
+                },
+                "oxygen": {
+                  "example": 0
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/blood-pressure/{id}": {
+      "get": {
+        "description": "取得血壓資訊",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
