@@ -1,3 +1,4 @@
+const moment = require("moment");
 const { firebaseDB } = require("../db/firebase");
 const express = require("express");
 const router = express.Router();
@@ -32,7 +33,15 @@ router.get("/:id", (req, res) => {
       throw new Error("請輸入使用者ID");
     }
     firebaseDB.ref(`blood-pressure/${id}`).once("value", (snapshot) => {
-      res.send({ ok: true, data: snapshot.val() });
+      res.send({
+        ok: true,
+        data: Object.values(snapshot.val() || {}).map((item) => {
+          return {
+            ...item,
+            updated: moment(item.updated).format("YYYY-MM-DD HH:mm:ss"),
+          };
+        }),
+      });
     });
   } catch (error) {
     res

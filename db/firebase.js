@@ -1,4 +1,5 @@
 const admin = require("firebase-admin");
+console.log(process.env.private_key);
 const { privateKey } = JSON.parse(process.env.private_key);
 const account = {
   type: process.env.type,
