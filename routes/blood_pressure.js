@@ -7,7 +7,7 @@ const router = express.Router();
  * @route
  */
 router.post("/", (req, res) => {
-  const { userId, high, low, rate, oxygen } = req.body;
+  const { userId, high, low } = req.body;
   const time = Date.now();
 
   try {
@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
 
     firebaseDB
       .ref(`/blood-pressure/${userId}/${time}`)
-      .set({ high, low, rate, oxygen, updated: time });
+      .set({ high, low, updated: time });
     res.send({ ok: true, message: "data added successfully!" });
   } catch (error) {
     res
