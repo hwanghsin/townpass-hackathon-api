@@ -6,6 +6,20 @@ const swaggerFile = require("./docs/swagger-output.json");
 const app = express();
 const port = process.env.PORT || 5001;
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization, Content-Length, X-Requested-With"
+  ); //Add other headers used in your requests
+  if ("OPTIONS" == req.method) {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
